@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Instagtam Photo Location Prediction</title>
+<script src="js/jquery.1.9.1.min.js"></script>
+
+<!-- bootstrap just to have good looking page -->
+<link href="{{ url_for('static', filename='bootstrap/css/bootstrap.css') }}" type="text/css" rel="stylesheet" />
+
+<script src="{{ url_for('static', filename='js/predictionfunctions.js') }}"></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYECxC6_HRstqOlh3VU1-Dr6PdwVbqfzk&callback=initMap"
+        async defer>
+</script>
+
+</head>
+
+<body>
+
+	<h1 style="text-align:center">Instagtam Photo Location Prediction<br></h1> 
+	
+	<!-- article inputs -->
+	<div class="article" style="margin:10px;">
+		
+		<div class="input-prepend">
+			<span class="add-on">Tags</span>
+			<input class="span2" id="tags" name="tags" type="text" placeholder="tag1,tag2,...">
+		</div>
+		<p>
+			<button class="btn btn-primary" type="button" onclick="sendAjax()">Predict</button>
+		</p>
+		<span id="loadtext"></span>
+	</div>
+	
+	<!-- display all articles -->
+	<div style="width:700px;padding:20px;S">
+		<h5 style="text-align:center"><i style="color:#ccc"><small>Location History</small></i></h5>
+	
+		<table id="added-articles" class="table">
+			<tr>
+			
+				<th>Tags</th>
+			</tr>
+		</table>
+	</div>
+
+	<div id="map" style="width:300px;height:300px;padding:20px;margin:20px;S"/>
+</body> 
+</html>
